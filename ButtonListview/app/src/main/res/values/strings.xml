@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Button Listview</string>
+    <string name="title_activity_events">Events</string>
+    <string name="large_text">
+        how to delet this without everythign breakng
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_eventlist">Eventlist</string>
+    <string name="EventButton">See Events For Today</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="ImaginaryEvent">This is a possible event boi</string>
+</resources>
