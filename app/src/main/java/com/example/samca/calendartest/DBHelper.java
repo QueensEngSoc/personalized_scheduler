@@ -39,12 +39,10 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(SqlStringStatements.CREATE_USERS);
         db.execSQL(SqlStringStatements.CREATE_COURSES);
         db.execSQL(SqlStringStatements.CREATE_CLASSES);
-        db.execSQL(SqlStringStatements.CREATE_EMERGENCY_CONTACTS);
-        db.execSQL(SqlStringStatements.CREATE_ENGINEERING_CONTACTS);
+        db.execSQL(SqlStringStatements.CREATE_DATE);
+        db.execSQL(SqlStringStatements.CREATE_MONTH);
+        db.execSQL(SqlStringStatements.CREATE_YEAR);
         db.execSQL(SqlStringStatements.CREATE_BUILDINGS);
-        db.execSQL(SqlStringStatements.CREATE_FOOD);
-        db.execSQL(SqlStringStatements.CREATE_CAFETERIAS);
-        db.execSQL(SqlStringStatements.CREATE_ILC_ROOM_INFO);
     }
 
     @Override
@@ -53,12 +51,11 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(SqlStringStatements.DELETE_USERS);
         db.execSQL(SqlStringStatements.DELETE_COURSES);
         db.execSQL(SqlStringStatements.DELETE_CLASSES);
-        db.execSQL(SqlStringStatements.DELETE_EMERGENCY_CONTACTS);
-        db.execSQL(SqlStringStatements.DELETE_ENGINEERING_CONTACTS);
+        db.execSQL(SqlStringStatements.DELETE_DATE);
+        db.execSQL(SqlStringStatements.DELETE_MONTH);
+        db.execSQL(SqlStringStatements.DELETE_YEAR);
         db.execSQL(SqlStringStatements.DELETE_BUILDINGS);
-        db.execSQL(SqlStringStatements.DELETE_FOOD);
-        db.execSQL(SqlStringStatements.DELETE_CAFETERIAS);
-        db.execSQL(SqlStringStatements.DELETE_ILC_ROOM_INFO);
+ 
         onCreate(db);
     }
 
