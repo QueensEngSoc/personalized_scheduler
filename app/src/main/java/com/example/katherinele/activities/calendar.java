@@ -20,6 +20,19 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+//<<<<<<< HEAD
+//=======
+//import com.github.sundeepk.compactcalendarview.CompactCalendarView;
+//import com.github.sundeepk.compactcalendarview.domain.Event;
+//
+//import java.text.SimpleDateFormat;
+//import java.util.Calendar;
+//import java.util.Date;
+//import java.util.List;
+//import java.util.Locale;
+//import com.example.katherinele.R;
+//
+//>>>>>>> 9fa1a4390d6671269c23c4cf7589145326c4549e
 public class calendar extends AppCompatActivity {
 
     // Define the variable of CalendarView type

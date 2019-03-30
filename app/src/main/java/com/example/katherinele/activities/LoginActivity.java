@@ -35,6 +35,11 @@ import com.example.katherinele.database.GetCloudDb;
 import com.example.katherinele.ICS.AsyncTaskObserver;
 import com.example.katherinele.Utility.Constants;
 import com.example.katherinele.ICS.DownloadICSFile;
+
+
+import com.example.katherinele.ICS.ParseICS;
+
+
 import com.example.katherinele.database.DatabaseAccessor;
 
 /**
@@ -280,6 +285,8 @@ public class LoginActivity extends AppCompatActivity{
                                 Log.d("HELLOTHERE", ignored.getMessage());
                             }
                         }
+                        final ParseICS parser = new ParseICS(context);
+                        parser.parseICSData();
 
                     }
                 }
