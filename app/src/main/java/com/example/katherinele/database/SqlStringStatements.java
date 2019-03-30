@@ -9,7 +9,7 @@ import com.example.katherinele.database.Class.OneClass;
 
 public class SqlStringStatements {
 
-    public static final String PHONE_DATABASE_NAME = "QTAP_PHONE.db";
+    public static final String PHONE_DATABASE_NAME = "PHONE.db";
 
     //create table statements
     static final String CREATE_COURSES = "CREATE TABLE " + Course.TABLE_NAME + "(" +

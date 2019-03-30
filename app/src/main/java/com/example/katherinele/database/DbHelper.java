@@ -5,10 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.crashlytics.android.Crashlytics;
 
 /**
- * Created by Carson on 19/01/2017.
  * Manages creating/upgrading/downgrading the database.
  * Also holds static SQL query strings to create/delete the database.
  */
@@ -40,7 +38,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Crashlytics.logException(new Throwable("DB Version Change"));
         db.execSQL(SqlStringStatements.CREATE_USERS);
         db.execSQL(SqlStringStatements.CREATE_COURSES);
         db.execSQL(SqlStringStatements.CREATE_CLASSES);
