@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.example.samca.calendartest.R;
+import com.example.katherinele.R;
 
 import com.example.katherinele.database.user.UserManager;
 import com.example.katherinele.database.user.User;
@@ -35,7 +35,9 @@ import com.example.katherinele.database.GetCloudDb;
 import com.example.katherinele.ICS.AsyncTaskObserver;
 import com.example.katherinele.Utility.Constants;
 import com.example.katherinele.ICS.DownloadICSFile;
-import com.example.samca.calendartest.calendar;
+import com.example.katherinele.ICS.ParseICS;
+
+import com.example.katherinele.database.DatabaseAccessor;
 
 /**
  * A login screen that offers login via email/password.
@@ -148,13 +150,13 @@ public class LoginActivity extends AppCompatActivity{
                     }
                 }
             });
-            //getCloudDb.execute(); //get cloud db into phone db
+            getCloudDb.execute(); //get cloud db into phone db
             //getIcsFile();
         } else {        // if the user has logged in before, see if the schedule is up to date
             User userData = (User) mUserManager.getTable().get(0);
             String date = userData.getDateInit();
 
-/*            if (!date.isEmpty()) { // if the user has previously downloaded a schedule
+            if (!date.isEmpty()) { // if the user has previously downloaded a schedule
                 Calendar cal = Calendar.getInstance();  // initialize a calendar variable to today's date
                 Calendar lastWeek = Calendar.getInstance();
                 lastWeek.add(Calendar.DAY_OF_YEAR, -7); // initialize a calendar variable to one week ago
@@ -174,7 +176,7 @@ public class LoginActivity extends AppCompatActivity{
                     getIcsFile();  // download the new schedule data right now on the main thread
                 } catch (Exception e) {
                     Log.d("HELLOTHERE", e.getMessage());
-                }*/
+                }
         }
         showProgress(false);
         startActivity(new Intent(LoginActivity.this, calendar.class));
@@ -184,7 +186,7 @@ public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-        //DatabaseAccessor.getDatabase().close(); //ensure only one database connection is ever open
+        DatabaseAccessor.getDatabase().close(); //ensure only one database connection is ever open
     }
 
     /**
@@ -279,6 +281,8 @@ public class LoginActivity extends AppCompatActivity{
                                 Log.d("HELLOTHERE", ignored.getMessage());
                             }
                         }
+                        final ParseICS parser = new ParseICS(context);
+                        parser.parseICSData();
 
                     }
                 }

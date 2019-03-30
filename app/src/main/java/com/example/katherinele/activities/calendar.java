@@ -1,4 +1,4 @@
-package com.example.samca.calendartest;
+package com.example.katherinele.activities;
 
 import android.graphics.Color;
 import android.nfc.Tag;
@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import com.example.katherinele.R;
 
 public class calendar extends AppCompatActivity {
 
