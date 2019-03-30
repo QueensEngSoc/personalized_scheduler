@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.example.katherinele.R;
+import com.example.katherinele.activities.R;
 
 import com.example.katherinele.database.user.UserManager;
 import com.example.katherinele.database.user.User;
