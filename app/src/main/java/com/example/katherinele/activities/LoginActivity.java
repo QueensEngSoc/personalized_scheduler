@@ -8,6 +8,8 @@ import android.app.ProgressDialog;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import android.util.Log;
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -17,7 +19,10 @@ import android.view.View;
 
 import org.json.JSONObject;
 
-
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -29,7 +34,7 @@ import com.example.katherinele.database.user.User;
 import com.example.katherinele.database.GetCloudDb;
 import com.example.katherinele.ICS.AsyncTaskObserver;
 import com.example.katherinele.Utility.Constants;
-
+import com.example.katherinele.ICS.DownloadICSFile;
 import com.example.samca.calendartest.calendar;
 
 /**
@@ -229,11 +234,11 @@ public class LoginActivity extends AppCompatActivity{
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
-
-    /**
+/*
+    *//**
      * Method that starts an asynchronous task that downloads and parses the ICS file.
-     */
-/*    private void getIcsFile() {
+     *//*
+     private void getIcsFile() {
         if (mIcsUrl != null && mIcsUrl.contains(".ics")) {
             final Context context = getApplicationContext();
             DownloadICSFile icsDownloader = new DownloadICSFile(new AsyncTaskObserver() {
@@ -275,17 +280,13 @@ public class LoginActivity extends AppCompatActivity{
                             }
                         }
 
-                        final ParseICS parser = new ParseICS(context);
-                        parser.parseICSData();
                     }
                 }
             });
 
-            try {
-                icsDownloader.execute(mIcsUrl).get();
-            } catch (Exception e) {
-                Log.d("HELLOTHERE", e.getMessage());
-            }
+
+            icsDownloader.execute(mIcsUrl).get();
+
         }
     }*/
 }
