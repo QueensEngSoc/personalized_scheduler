@@ -1,0 +1,72 @@
+package com.example.katherinele.database.Course;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+
+import java.util.ArrayList;
+
+import com.example.katherinele.database.DatabaseManager;
+import com.example.katherinele.database.DatabaseRow;
+
+public class CourseManager extends DatabaseManager {
+
+    public CourseManager(Context context) {
+        super(context);
+    }
+
+    @Override
+    public void insertRow(DatabaseRow row) {
+        if (row instanceof Course) {
+            Course course = (Course) row;
+            ContentValues values = new ContentValues();
+            values.put(Course.COLUMN_CODE, course.getCode());
+            values.put(Course.COLUMN_NAME, course.getName());
+            values.put(Course.COLUMN_SET_NAME, course.isSetName());
+            getDatabase().insert(Course.TABLE_NAME, null, values);
+        }
+    }
+
+    @Override
+    public ArrayList<DatabaseRow> getTable() {
+        ArrayList<DatabaseRow> courses = new ArrayList<>();
+        //try with resources - automatically closes cursor whether or not its completed normally
+        try (Cursor cursor = getDatabase().query(Course.TABLE_NAME, null, null, null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                Course course = new Course(cursor.getInt(Course.ID_POS), cursor.getString(Course.CODE_POS), cursor.getString(Course.NAME_POS), cursor.getInt(Course.SET_NAME_POS) > 0);
+                courses.add(course);
+            }
+            cursor.close();
+            return courses; //return only when the cursor has been closed
+        }
+    }
+
+    @Override
+    public Course getRow(long id) {
+        String selection = Course.ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        try (Cursor cursor = getDatabase().query(Course.TABLE_NAME, null, selection, selectionArgs, null, null, null)) {
+            Course course = null;
+            if (cursor != null && cursor.moveToNext()) {
+                course = new Course(cursor.getInt(Course.ID_POS), cursor.getString(Course.CODE_POS), cursor.getString(Course.NAME_POS), cursor.getInt(Course.SET_NAME_POS) > 0);
+                cursor.close();
+            }
+            return course;
+        }
+    }
+
+    @Override
+    public void updateRow(DatabaseRow oldRow, DatabaseRow newRow) {
+        if (oldRow instanceof Course && newRow instanceof Course) {
+            Course oldCourse = (Course) oldRow;
+            Course newCourse = (Course) newRow;
+            ContentValues values = new ContentValues();
+            values.put(Course.COLUMN_CODE, newCourse.getCode());
+            values.put(Course.COLUMN_NAME, newCourse.getName());
+            values.put(Course.COLUMN_SET_NAME,newCourse.isSetName());
+            String selection = Course.ID + " LIKE ?";
+            String selectionArgs[] = {String.valueOf(oldCourse.getId())};
+            getDatabase().update(Course.TABLE_NAME, values, selection, selectionArgs);
+        }
+    }
+}

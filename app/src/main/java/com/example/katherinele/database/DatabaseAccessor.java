@@ -1,5 +1,4 @@
 package com.example.katherinele.database;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 

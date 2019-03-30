@@ -3,67 +3,34 @@ package com.example.katherinele.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 import android.app.ProgressDialog;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.util.Log;
 
 import org.json.JSONObject;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 import com.example.samca.calendartest.R;
 
-import com.example.katherinele.database.DatabaseAccessor;
-import com.example.katherinele.database.DatabaseManager;
 import com.example.katherinele.database.user.UserManager;
 import com.example.katherinele.database.user.User;
 import com.example.katherinele.database.GetCloudDb;
 import com.example.katherinele.ICS.AsyncTaskObserver;
-import com.example.katherinele.ICS.DownloadICSFile;
-import com.example.katherinele.ICS.ParseICS;
 import com.example.katherinele.Utility.Constants;
 
 import com.example.samca.calendartest.calendar;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
@@ -176,7 +143,7 @@ public class LoginActivity extends AppCompatActivity{
                     }
                 }
             });
-            getCloudDb.execute(); //get cloud db into phone db
+            //getCloudDb.execute(); //get cloud db into phone db
             //getIcsFile();
         } else {        // if the user has logged in before, see if the schedule is up to date
             User userData = (User) mUserManager.getTable().get(0);
@@ -212,7 +179,7 @@ public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
-        DatabaseAccessor.getDatabase().close(); //ensure only one database connection is ever open
+        //DatabaseAccessor.getDatabase().close(); //ensure only one database connection is ever open
     }
 
     /**
