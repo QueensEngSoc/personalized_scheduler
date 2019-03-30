@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import com.example.samca.calendartest.R;
+import com.example.katherinele.activities.R;
 
 import com.example.katherinele.database.user.UserManager;
 import com.example.katherinele.database.user.User;
@@ -35,7 +35,6 @@ import com.example.katherinele.database.GetCloudDb;
 import com.example.katherinele.ICS.AsyncTaskObserver;
 import com.example.katherinele.Utility.Constants;
 import com.example.katherinele.ICS.DownloadICSFile;
-import com.example.samca.calendartest.calendar;
 
 /**
  * A login screen that offers login via email/password.

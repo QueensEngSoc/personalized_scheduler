@@ -1,4 +1,4 @@
-package com.example.samca.calendartest;
+package com.example.katherinele.activities;
 
 import android.graphics.Color;
 import android.nfc.Tag;
