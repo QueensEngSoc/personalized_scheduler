@@ -8,8 +8,8 @@ import android.app.ProgressDialog;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import android.util.Log;
 
+import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 
@@ -234,10 +234,10 @@ public class LoginActivity extends AppCompatActivity{
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
-/*
-    *//**
+
+    /**
      * Method that starts an asynchronous task that downloads and parses the ICS file.
-     *//*
+     */
      private void getIcsFile() {
         if (mIcsUrl != null && mIcsUrl.contains(".ics")) {
             final Context context = getApplicationContext();
@@ -285,10 +285,14 @@ public class LoginActivity extends AppCompatActivity{
             });
 
 
-            icsDownloader.execute(mIcsUrl).get();
+            try {
+                icsDownloader.execute(mIcsUrl).get();
+            } catch (Exception e) {
+                Log.d("HELLOTHERE", e.getMessage());
+            }
 
         }
-    }*/
+    }
 }
 
 

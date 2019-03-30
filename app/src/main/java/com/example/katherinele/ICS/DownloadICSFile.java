@@ -11,7 +11,7 @@ import com.example.katherinele.ICS.AsyncTaskObserver;
 public class DownloadICSFile extends AsyncTask<String, Integer, String> {
     private AsyncTaskObserver mObserver;
 
-    public void DownloadICSFile(AsyncTaskObserver observer){
+    public DownloadICSFile(AsyncTaskObserver observer){
         mObserver = observer;
     }
     protected String doInBackground(String... sUrl){
