@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.ValueCallback;
 
 
 import android.util.Log;
@@ -79,13 +80,13 @@ public class LoginActivity extends AppCompatActivity{
                     if (browser.getUrl().contains(Constants.QUEENS_LOGIN))
                         browser.loadUrl(Constants.GET_QUEENS_BODY_JS);
 
-/*                    browser.evaluateJavascript(Constants.GET_HTML_TAGS_JS,
+                   browser.evaluateJavascript(Constants.GET_HTML_TAGS_JS,
                             new ValueCallback<String>() {
                                 @Override
                                 public void onReceiveValue(String html) {
                                     tryProcessHtml(html);
                                 }
-                            });*/
+                            });
                 }
             });
             browser.loadUrl(Constants.QUEENS_SOFTWARE_CENTRE);
@@ -154,7 +155,7 @@ public class LoginActivity extends AppCompatActivity{
                 }
             });
             getCloudDb.execute(); //get cloud db into phone db
-            //getIcsFile();
+            getIcsFile();
         } else {        // if the user has logged in before, see if the schedule is up to date
             User userData = (User) mUserManager.getTable().get(0);
             String date = userData.getDateInit();
