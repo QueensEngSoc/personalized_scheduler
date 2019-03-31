@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import org.json.JSONObject;
 
@@ -183,7 +184,15 @@ public class LoginActivity extends AppCompatActivity{
                 }
         }
         showProgress(false);
-        startActivity(new Intent(LoginActivity.this, calendar.class));
+        Button btn = (Button)findViewById(R.id.email_sign_in_button);
+        setContentView(R.layout.activity_login);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, calendar.class));
+            }
+        });
+
     }
 
 
